@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Device } from 'src/domain/model/device.model';
 import { DeviceRepository } from '../device.repository';
-import { data } from './staticData';
+import { data } from './static-data';
 
 @Injectable()
 export class DeviceMemoryRepository extends DeviceRepository {

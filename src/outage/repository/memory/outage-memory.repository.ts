@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Outage } from '../../../domain/model/outage.model';
 import { OutageRepository } from '../outage.repository';
-import { data } from './staticData';
+import { data } from './static-data';
 
 @Injectable()
 export class OutageMemoryRepository extends OutageRepository {

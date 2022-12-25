@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { AuthRepository } from '../auth.repository';
-import { apiKeys } from './apkeys';
+import { apiKeys } from './app-keys';
 
 @Injectable()
 export class AuthMemoryRepository extends AuthRepository {

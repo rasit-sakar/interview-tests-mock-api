@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { SiteInfo } from '../../../domain/model/site-info.model';
 import { SiteInfoRepository } from '../site-info.repository';
-import { data } from './staticData';
+import { data } from './static-data';
 
 @Injectable()
 export class SiteInfoMemoryRepository extends SiteInfoRepository {

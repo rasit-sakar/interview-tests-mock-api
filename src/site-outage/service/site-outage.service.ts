@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { OutageConfig } from 'src/configurations/outage.config';
+import { OutageConfig } from 'src/configuration/outage.config';
 import { DeviceService } from 'src/device/service/device.service';
 import { OutageService } from 'src/outage/service/outage.service';
 import { SiteInfoService } from 'src/site-info/service/site-info.service';
