@@ -12,8 +12,8 @@ export class OutageService {
         return OutageResponseModel.fromModels(result);
     }
 
-    async getOutagesWithDeviceIds(deviceIds: string[]): Promise<Outage[]> {
-        const result = await this.outageRepository.getOutagesByDeviceIds(deviceIds);
+    async filterOutages(deviceIds: string[], beginDate: Date): Promise<Outage[]> {
+        const result = await this.outageRepository.filterOutages(deviceIds, beginDate);
         return result;
     }
 }

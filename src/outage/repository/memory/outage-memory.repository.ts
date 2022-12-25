@@ -9,9 +9,9 @@ export class OutageMemoryRepository extends OutageRepository {
         return data;
     }
 
-    async getOutagesByDeviceIds(deviceIds: string[]): Promise<Outage[]> {
-        const result = data.filter((outage) =>
-            deviceIds.includes(outage.deviceId),
+    async filterOutages(deviceIds: string[], beginDate: Date): Promise<Outage[]> {
+        const result = data.filter(
+            (outage) => outage.begin > beginDate && deviceIds.includes(outage.deviceId),
         );
         return result;
     }
