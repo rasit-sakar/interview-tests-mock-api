@@ -42,10 +42,10 @@ Project is designed with DDD approach.
         - Service Folder
         - Repository Folder
             - abstract repository files
-            - concreate repository folder **( in the project i didnt use any real db. memory repository is only for static data gathering )**
+            - concreate repository folder ( in the project i didnt use any real db. memory repository is only for static data gathering )
         - Model Folder
         - *.module.ts (for injection)
-    - Common Domain Folder **(for common dto and exception models)**
+    - Common Domain Folder (for common dto and exception models)
     - Configuration Folder
     - Test Folder
 
