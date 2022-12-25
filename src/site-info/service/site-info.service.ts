@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { DeviceService } from 'src/device/service/device.service';
-import { SiteInfoNotFoundException } from 'src/domain/exception/site-not-found.exception';
-import { SiteInfo } from 'src/domain/model/site-info.model';
+import { DeviceService } from '../../device/service/device.service';
+import { SiteInfoNotFoundException } from '../../domain/exception/site-not-found.exception';
+import { SiteInfo } from '../../domain/model/site-info.model';
 import { SiteInfoResponseModel } from '../model/site-info.response.model';
 import { SiteInfoRepository } from '../repository/site-info.repository';
 
