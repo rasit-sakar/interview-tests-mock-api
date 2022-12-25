@@ -1,6 +1,6 @@
-# KrakenFlex Assıgment
+# KrakenFlex Assignment
 
-This is the solution for audition assignment for back-end.
+This is the solution for audition assignment for back-end. Task description is in taksinfo folder.
 
 ## Installation
 
@@ -53,7 +53,7 @@ Project is designed with DDD approach.
 
 ```bash
 APP_NAME="KrakenFlex Task"
-APP_DESCRIPTION="Raşit Şakar Krakenflex Task API'
+APP_DESCRIPTION="Raşit Şakar Krakenflex Task API"
 APP_VERSION="v1"
 PORT=3000
 NODE_ENV="development"
