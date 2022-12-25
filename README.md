@@ -1,73 +1,107 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# KrakenFlex Assıgment
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is the solution for audition assignment for back-end.
 
 ## Installation
 
-```bash
-$ npm install
-```
-
-## Running the app
+Nodejs v14.x.x and upper version are needed for installation
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
-
-## Test
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run build
 ```
 
-## Support
+## Usage
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Running Server
 
-## Stay in touch
+```bash
+npm run start:dev
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+You can access the swagger on development environment go to [http://localhost:3000/interview-tests-mock-api/v1/swagger](http://localhost:3000/interview-tests-mock-api/v1/swagger)
 
-## License
+### Running Tests
 
-Nest is [MIT licensed](LICENSE).
+```bash
+npm run test
+npm run test:cov
+```
+
+### Project Info
+
+Project is designed with DDD approach.
+
+**Structure:**
+
+    - Module Folder(auth,site-info, outage, device, site-outage)
+        - Controller Folder
+        - Service Folder
+        - Repository Folder
+            - abstract repository files
+            - concreate repository folder **( in the project i didnt use any real db. memory repository is only for static data gathering )**
+        - Model Folder
+        - *.module.ts (for injection)
+    - Common Domain Folder **(for common dto and exception models)**
+    - Configuration Folder
+    - Test Folder
+
+### Environment Variables (with default values)
+
+```bash
+APP_NAME="KrakenFlex Task"
+APP_DESCRIPTION="Raşit Şakar Krakenflex Task API'
+APP_VERSION="v1"
+PORT=3000
+NODE_ENV="development"
+API_GLOBAL_URL_PREFIX="interview-tests-mock-api"
+API_DOCUMENTATION_PATH="swagger"
+OUTAGE_DATE_FILTER='2022-01-01T00:00:00.000Z'
+```
+
+### Exception Filter
+
+    Exception filter is located at "/src/configuration/default-exception-filter".
+    It handles 500 internal server errors and converts them to custom http exception.
+
+### Test Coverage
+
+```bash
+------------------------------|---------|----------|---------|---------|-------------------
+File                          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+------------------------------|---------|----------|---------|---------|-------------------
+All files                     |     100 |      100 |     100 |     100 |
+ auth/repository              |     100 |      100 |     100 |     100 |
+  auth.repository.ts          |     100 |      100 |     100 |     100 |
+ auth/service                 |     100 |      100 |     100 |     100 |
+  auth-service.ts             |     100 |      100 |     100 |     100 |
+ device/repository            |     100 |      100 |     100 |     100 |
+  device.repository.ts        |     100 |      100 |     100 |     100 |
+ device/service               |     100 |      100 |     100 |     100 |
+  device.service.ts           |     100 |      100 |     100 |     100 |
+ domain/exception             |     100 |      100 |     100 |     100 |
+  site-not-found.exception.ts |     100 |      100 |     100 |     100 |
+ outage/model                 |     100 |      100 |     100 |     100 |
+  outage.response.model.ts    |     100 |      100 |     100 |     100 |
+ outage/repository            |     100 |      100 |     100 |     100 |
+  outage.repository.ts        |     100 |      100 |     100 |     100 |
+ outage/service               |     100 |      100 |     100 |     100 |
+  outage.service.ts           |     100 |      100 |     100 |     100 |
+ site-info/model              |     100 |      100 |     100 |     100 |
+  site-info.response.model.ts |     100 |      100 |     100 |     100 |
+ site-info/repository         |     100 |      100 |     100 |     100 |
+  site-info.repository.ts     |     100 |      100 |     100 |     100 |
+ site-info/service            |     100 |      100 |     100 |     100 |
+  site-info.service.ts        |     100 |      100 |     100 |     100 |
+------------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 4 passed, 4 total
+Tests:       17 passed, 17 total
+Snapshots:   0 total
+Time:        2.97 s, estimated 3 s
+```
+
+Raşit Şakar <<rasitsakar94@gmail.com>>
