@@ -10,11 +10,9 @@ const site1Devices: Device[] = [
 const deviceData: Device[] = [...site1Devices, { id: '3', name: 'Device 33', siteId: '3' }];
 
 describe('Device Service Unit Test', () => {
-    let correctApiKey: string;
     let deviceRepository: DeviceRepository;
 
     beforeAll(() => {
-        correctApiKey = 'asdasdsad';
         deviceRepository = jest.mocked<DeviceRepository>({
             getDevicesBySiteId: jest.fn(async (siteId: string) => {
                 return deviceData.filter((device) => device.siteId == siteId);
@@ -27,13 +25,13 @@ describe('Device Service Unit Test', () => {
     });
 
     describe('getDevicesBySiteId ', () => {
-        it('Should called once', async () => {
+        it('Respository should be called once', async () => {
             const deviceService = new DeviceService(deviceRepository);
             await deviceService.getDevicesBySiteId('1');
             expect(deviceRepository.getDevicesBySiteId).toBeCalledTimes(1);
         });
 
-        it('Should return Site 1 devices', async () => {
+        it('Should return devices', async () => {
             const deviceService = new DeviceService(deviceRepository);
             const result = await deviceService.getDevicesBySiteId('1');
             expect(result).not.toBeNull();

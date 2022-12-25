@@ -19,7 +19,7 @@ describe('Auth Service Unit Test', () => {
             jest.clearAllMocks();
         });
 
-        it('Should be called once', async () => {
+        it('Respository should be called once', async () => {
             const authService = new AuthService(authRepository);
             await authService.isApiKeyValid(correctApiKey);
             expect(authRepository.isApiKeyValid).toBeCalledTimes(1);

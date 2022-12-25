@@ -1,4 +1,4 @@
-import { ExceptionFilter, Catch, ArgumentsHost, HttpException, HttpStatus } from '@nestjs/common';
+import { ExceptionFilter, Catch, ArgumentsHost, HttpException } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 import { CustomInternalServerException } from 'src/domain/exception/custom-internal-server.exception';
 import { ExceptionResponse } from 'src/domain/model/exception-response.model';
@@ -21,6 +21,7 @@ export class DefaultExceptionsFilter implements ExceptionFilter {
             response.message = exception.message;
             response.status = exception.getStatus();
         } else {
+            //Handles internal server errors
             const customException = new CustomInternalServerException();
             response.message = customException.message;
             response.status = customException.getStatus();

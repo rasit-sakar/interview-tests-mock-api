@@ -9,6 +9,5 @@ import { SiteOutageService } from './service/site-outage.service';
     imports: [DeviceModule, OutageModule, SiteInfoModule],
     controllers: [SiteOutageController],
     providers: [SiteOutageService],
-    exports: [],
 })
 export class SiteOutageModule {}

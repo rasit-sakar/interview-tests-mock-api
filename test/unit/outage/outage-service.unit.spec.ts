@@ -1,13 +1,11 @@
 import { OutageRepository } from '../../../src/outage/repository/outage.repository';
 import { OutageService } from '../../../src/outage/service/outage.service';
-import { outageData, outageDataDevice1and2022 } from './testData';
+import { outageData, outageDataDevice1and2022 } from './test-data';
 
 describe('Outage Service Unit Test', () => {
-    let correctApiKey: string;
     let outageRepository: OutageRepository;
 
     beforeAll(() => {
-        correctApiKey = 'asdasdsad';
         outageRepository = jest.mocked<OutageRepository>({
             getOutages: jest.fn(async () => {
                 return outageData;
@@ -29,13 +27,13 @@ describe('Outage Service Unit Test', () => {
         beforeEach(() => {
             jest.clearAllMocks();
         });
-        it('Repository should called once', async () => {
+        it('Repository should be called once', async () => {
             const outageService = new OutageService(outageRepository);
             await outageService.getOutages();
             expect(outageRepository.getOutages).toBeCalledTimes(1);
         });
 
-        it('Should return all devices', async () => {
+        it('Should return all outages', async () => {
             const outageService = new OutageService(outageRepository);
             const result = await outageService.getOutages();
             expect(result).not.toBeNull();
@@ -46,7 +44,7 @@ describe('Outage Service Unit Test', () => {
         });
     });
 
-    describe('getDevicesBySiteId ', () => {
+    describe('filterOutages ', () => {
         beforeEach(() => {
             jest.clearAllMocks();
         });
@@ -56,7 +54,7 @@ describe('Outage Service Unit Test', () => {
             expect(outageRepository.filterOutages).toBeCalledTimes(1);
         });
 
-        it('Should return outageDataDevice1and2022 devices', async () => {
+        it('Should return outages of spesific devices', async () => {
             const outageService = new OutageService(outageRepository);
             const result = await outageService.filterOutages(
                 ['1'],

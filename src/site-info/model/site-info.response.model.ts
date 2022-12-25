@@ -22,9 +22,7 @@ export class SiteInfoResponseModel {
         return {
             id: siteInfo.id,
             name: siteInfo.name,
-            devices: siteInfo.devices.map((device) =>
-                DeviceResponseModel.fromModel(device),
-            ),
+            devices: siteInfo.devices.map((device) => DeviceResponseModel.fromModel(device)),
         };
     }
 }

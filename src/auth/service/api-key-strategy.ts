@@ -5,6 +5,9 @@ import { AuthTokenNotFoundException } from 'src/domain/exception/auth-token-not-
 import { AuthTokenNotValidException } from 'src/domain/exception/auth-token-not-valid.exception';
 import { AuthService } from './auth-service';
 
+/**
+ * Global x-api-key header validation
+ */
 @Injectable()
 export class ApiKeyStrategy extends PassportStrategy(Strategy, 'api-key') {
     constructor(private readonly authService: AuthService) {
@@ -13,7 +16,10 @@ export class ApiKeyStrategy extends PassportStrategy(Strategy, 'api-key') {
         });
     }
 
-    async validate(apiKey: string, done: (error: Error, data) => {}): Promise<void> {
+    /**
+     * Validates incoming api key with Auth Service
+     */
+    async validate(apiKey: string, done: (error: Error, data) => void): Promise<void> {
         if (!apiKey) {
             done(new AuthTokenNotFoundException(), null);
         }

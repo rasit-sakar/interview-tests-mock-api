@@ -51,14 +51,19 @@ describe('Auth Service Unit Test', () => {
             jest.clearAllMocks();
         });
 
-        it('Should be called once', async () => {
+        it('Repository should be called once', async () => {
             const siteInfoService = new SiteInfoService(siteInfoRepository, deviceService);
             await siteInfoService.getSiteInfo('1');
             expect(siteInfoRepository.getSiteInfo).toBeCalledTimes(1);
+        });
+
+        it('DeviceService should be called once', async () => {
+            const siteInfoService = new SiteInfoService(siteInfoRepository, deviceService);
+            await siteInfoService.getSiteInfo('1');
             expect(deviceService.getDevicesBySiteId).toBeCalledTimes(0);
         });
 
-        it('Should return same site', async () => {
+        it('Should return site info', async () => {
             const siteInfoService = new SiteInfoService(siteInfoRepository, deviceService);
             const result = await siteInfoService.getSiteInfo('1');
             expect(result).not.toBeNull();
@@ -81,7 +86,7 @@ describe('Auth Service Unit Test', () => {
             jest.clearAllMocks();
         });
 
-        it('Should called once', async () => {
+        it('Repository & Device Service should called once', async () => {
             const siteInfoService = new SiteInfoService(siteInfoRepository, deviceService);
             await siteInfoService.getSiteInfoWithDevices('1');
             expect(siteInfoRepository.getSiteInfo).toBeCalledTimes(1);
